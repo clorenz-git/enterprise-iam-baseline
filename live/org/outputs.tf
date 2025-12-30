@@ -15,6 +15,6 @@ output "ou_ids" {
 
 output "accounts_ids" {
   description = "Map of account names to their IDs"
-  value       = module.org.accounts_ids
+  value       = module.org.account_ids
 }
 
