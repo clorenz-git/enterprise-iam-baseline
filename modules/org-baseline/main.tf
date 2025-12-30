@@ -27,7 +27,7 @@ resource "aws_organizations_organizational_unit" "ou" {
 }
 
 
-resoure "aws_organizations_account" "acct" {
+resource "aws_organizations_account" "acct" {
   for_each = var.accounts
 
   name  = each.value.name
