@@ -1,6 +1,5 @@
 resource "aws_organizations_organization" "this" {
-  count = var.org_enabled ? 1 : 0
-
+  count       = var.org_enabled ? 1 : 0
   feature_set = "ALL"
 }
 
@@ -12,20 +11,22 @@ data "aws_organizations_organization" "this" {
 locals {
   root_id = data.aws_organizations_organization.this.roots[0].id
 
-  ous = toset(distinct([
-    for _, account in var.accounts :
-    account.ou
-  ]))
+  # Stable OU keys that match your existing state addresses
+  ou_map = {
+    Security  = "Security"
+    Workloads = "Workloads"
+  }
 }
-
 
 resource "aws_organizations_organizational_unit" "ou" {
-  for_each = local.ous
-
+  for_each  = local.ou_map
   name      = each.value
   parent_id = local.root_id
-}
 
+  lifecycle {
+    prevent_destroy = true
+  }
+}
 
 resource "aws_organizations_account" "acct" {
   for_each = var.accounts
@@ -39,6 +40,3 @@ resource "aws_organizations_account" "acct" {
     prevent_destroy = true
   }
 }
-
-
-
