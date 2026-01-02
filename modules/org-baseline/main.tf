@@ -36,7 +36,8 @@ resource "aws_organizations_account" "acct" {
 
   parent_id = aws_organizations_organizational_unit.ou[each.value.ou].id
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  ### COMMENTED THIS OUT TO ALLOW FOR DESTROYING IN TERRAFORM
+  # lifecycle {
+  #   prevent_destroy = true
 }
+

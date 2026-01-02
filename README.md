@@ -1,4 +1,3 @@
-```md
 # Enterprise IAM Baseline (AWS Organizations + Identity Center + Terraform)
 
 This project implements a **realistic enterprise-style identity and access management (IAM) baseline** in AWS using Terraform.  
@@ -140,4 +139,3 @@ If you want to understand how access should be handled **at scale** in AWS, this
 
 ```
 
----
