@@ -52,6 +52,9 @@ Everything in this repo was built, verified, documented, and then intentionally 
 
 ## Architecture overview
 
+![Enterprise IAM architecture](docs/enterprise-iam-architecture.png)
+
+
 ### Organization structure
 
 ![AWS Organizations structure](docs/org-structure.png)
