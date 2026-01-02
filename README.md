@@ -10,6 +10,12 @@ Everything in this repo was built, verified, documented, and then intentionally 
 ## What this project demonstrates
 
 ### ✅ Centralized identity (SSO-first)
+
+### IAM Identity Center groups and permission sets
+
+![Identity Center groups](docs/identity-center-groups.png)
+![Permission sets](docs/permission-sets.png)
+
 - AWS IAM Identity Center (SSO) as the **single entry point** for human access
 - No IAM users in workload accounts
 - Group-based access instead of user-based permissions
@@ -21,6 +27,11 @@ Everything in this repo was built, verified, documented, and then intentionally 
 - Organizational Units used to scope policies and guardrails
 
 ### ✅ Reusable permission model
+
+### Account assignments
+
+![SSO account assignments](docs/account-assignments.png)
+
 - **Permission sets** mapped to common enterprise roles:
   - PlatformAdmin
   - PowerUserDev
@@ -33,9 +44,18 @@ Everything in this repo was built, verified, documented, and then intentionally 
 - SCP preventing member accounts from leaving the organization
 - Guardrails enforced *above* IAM (cannot be bypassed)
 
+### Enforcement proof of guardrails
+
+![Access denied by SCP](docs/scp-access-denied.png)
+
 ---
 
 ## Architecture overview
+
+### Organization structure
+
+![AWS Organizations structure](docs/org-structure.png)
+
 
 **Identity**
 - IAM Identity Center (SSO)
